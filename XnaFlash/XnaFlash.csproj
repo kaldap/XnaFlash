@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{E33D98AC-D2FA-44BC-8766-E41142B084F0}</ProjectGuid>
+    <ProjectTypeGuids>{6D335F3A-9D43-41b4-9D22-F6F17C4BE596};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XnaFlash</RootNamespace>
+    <AssemblyName>XnaFlash</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <XnaFrameworkVersion>v4.0</XnaFrameworkVersion>
+    <XnaPlatform>Windows</XnaPlatform>
+    <XnaProfile>HiDef</XnaProfile>
+    <XnaCrossPlatformGroupID>e427eec1-f98c-4944-8f94-b35d7c1a3a9d</XnaCrossPlatformGroupID>
+    <XnaOutputType>Library</XnaOutputType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\x86\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;WINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <PlatformTarget>x86</PlatformTarget>
+    <XnaCompressContent>false</XnaCompressContent>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\x86\Release</OutputPath>
+    <DefineConstants>TRACE;WINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <PlatformTarget>x86</PlatformTarget>
+    <XnaCompressContent>true</XnaCompressContent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Game, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Graphics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.GamerServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Xact, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Video, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Avatar, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Net, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Storage, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="mscorlib">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Net">
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Actions\ActionBlock.cs" />
+    <Compile Include="Actions\ActionContext.cs" />
+    <Compile Include="Actions\Enums.cs" />
+    <Compile Include="Actions\ASFuncAttribute.cs" />
+    <Compile Include="Actions\Functions\NativeActionFunc.cs" />
+    <Compile Include="Actions\Functions\RuntimeActionFunc.cs" />
+    <Compile Include="Actions\Objects\GlobalScope.cs" />
+    <Compile Include="Actions\Objects\Array.cs" />
+    <Compile Include="Actions\Objects\Boolean.cs" />
+    <Compile Include="Actions\Objects\Function.cs" />
+    <Compile Include="Actions\Objects\MovieClip.cs" />
+    <Compile Include="Actions\ActionFunc.cs" />
+    <Compile Include="Actions\ActionObject.cs" />
+    <Compile Include="Actions\ActionVar.cs" />
+    <Compile Include="Actions\Objects\Number.cs" />
+    <Compile Include="Actions\Objects\Object.cs" />
+    <Compile Include="Actions\Objects\String.cs" />
+    <Compile Include="Content\BinaryData.cs" />
+    <Compile Include="Content\ButtonInfo.cs" />
+    <Compile Include="Content\ButtonPart.cs" />
+    <Compile Include="Content\ICharacter.cs" />
+    <Compile Include="Content\Bitmap.cs" />
+    <Compile Include="Content\Font.cs" />
+    <Compile Include="Content\Shape.cs" />
+    <Compile Include="Content\Sprite.cs" />
+    <Compile Include="Content\SpriteFrame.cs" />
+    <Compile Include="Content\Text.cs" />
+    <Compile Include="Flash.cs" />
+    <Compile Include="FlashDocument.cs" />
+    <Compile Include="Movie\Button.cs" />
+    <Compile Include="Movie\DisplayList.cs" />
+    <Compile Include="Movie\DisplayObject.cs" />
+    <Compile Include="Movie\DisplayState.cs" />
+    <Compile Include="Movie\IDrawable.cs" />
+    <Compile Include="Movie\IInstanceable.cs" />
+    <Compile Include="Movie\MovieClip.cs" />
+    <Compile Include="Movie\RootMovieClip.cs" />
+    <Compile Include="Movie\StageObject.cs" />
+    <Compile Include="Swf\Structures\Fonts\FontGlyph.cs" />
+    <Compile Include="Swf\Structures\Fonts\GlyphEntry.cs" />
+    <Compile Include="Swf\Structures\Fonts\TextRecord.cs" />
+    <Compile Include="Swf\Structures\KeyCode.cs" />
+    <Compile Include="Swf\Tags\DefineEditTextTag.cs" />
+    <Compile Include="Swf\Tags\DefineFont2Tag.cs" />
+    <Compile Include="Swf\Tags\DefineFontInfoTag.cs" />
+    <Compile Include="Swf\Tags\DefineFontNameTag.cs" />
+    <Compile Include="Swf\Tags\DefineShape4Tag.cs" />
+    <Compile Include="Swf\Tags\DefineTextTag.cs" />
+    <Compile Include="Content\CharacterType.cs" />
+    <Compile Include="SwfImporter.cs" />
+    <Compile Include="ISystemServices.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Actions\ActionCode.cs" />
+    <Compile Include="Actions\ActionRecord.cs" />
+    <Compile Include="Actions\ConstantPool.cs" />
+    <Compile Include="Actions\Records\BranchAction.cs" />
+    <Compile Include="Actions\Records\ConstantPoolAction.cs" />
+    <Compile Include="Actions\Records\DefineFunctionAction.cs" />
+    <Compile Include="Actions\Records\FrameAction.cs" />
+    <Compile Include="Actions\Records\GetURLAction.cs" />
+    <Compile Include="Actions\Records\GoToFrame2Action.cs" />
+    <Compile Include="Actions\Records\GoToLabelAction.cs" />
+    <Compile Include="Actions\Records\PushAction.cs" />
+    <Compile Include="Actions\Records\SetTargetAction.cs" />
+    <Compile Include="Actions\Records\StoreRegisterAction.cs" />
+    <Compile Include="Actions\Records\TryAction.cs" />
+    <Compile Include="Actions\Records\WaitForFrameAction.cs" />
+    <Compile Include="Actions\Records\WithAction.cs" />
+    <Compile Include="Swf\BitmapUtils.cs" />
+    <Compile Include="Swf\ISwfTag.cs" />
+    <Compile Include="Swf\BitStream.cs" />
+    <Compile Include="Swf\SwfCorruptedException.cs" />
+    <Compile Include="Swf\SwfStream.cs" />
+    <Compile Include="Swf\SwfTagFactory.cs" />
+    <Compile Include="Swf\Paths\PathBuilder.cs" />
+    <Compile Include="Swf\Paths\Shape.cs" />
+    <Compile Include="Swf\Structures\BitmapFormat.cs" />
+    <Compile Include="Swf\Structures\BlendMode.cs" />
+    <Compile Include="Swf\Structures\ButtonCondAction.cs" />
+    <Compile Include="Swf\Structures\ButtonRecord.cs" />
+    <Compile Include="Swf\Structures\ClipActionRecord.cs" />
+    <Compile Include="Swf\Structures\ClipActions.cs" />
+    <Compile Include="Swf\Structures\ClipEventFlags.cs" />
+    <Compile Include="Swf\Structures\FillStyle.cs" />
+    <Compile Include="Swf\Structures\FillStyleArray.cs" />
+    <Compile Include="Swf\Structures\Filter.cs" />
+    <Compile Include="Swf\Structures\Filters\BevelFilter.cs" />
+    <Compile Include="Swf\Structures\Filters\BlurFilter.cs" />
+    <Compile Include="Swf\Structures\Filters\ColorMatrixFilter.cs" />
+    <Compile Include="Swf\Structures\Filters\ConvolutionFilter.cs" />
+    <Compile Include="Swf\Structures\Filters\DropShadowFilter.cs" />
+    <Compile Include="Swf\Structures\Filters\GlowFilter.cs" />
+    <Compile Include="Swf\Structures\Filters\GradientGlowFilter.cs" />
+    <Compile Include="Swf\Structures\Gradients\FocalGradientInfo.cs" />
+    <Compile Include="Swf\Structures\Gradients\GradientInfo.cs" />
+    <Compile Include="Swf\Structures\Gradients\GradRecord.cs" />
+    <Compile Include="Swf\Structures\LineStyle.cs" />
+    <Compile Include="Swf\Structures\LineStyleArray.cs" />
+    <Compile Include="Swf\Structures\ShapeInfo.cs" />
+    <Compile Include="Swf\Structures\ShapeRecord.cs" />
+    <Compile Include="Swf\Structures\ShapeState.cs" />
+    <Compile Include="Swf\Structures\SwfLanguage.cs" />
+    <Compile Include="Swf\SwfTagAttribute.cs" />
+    <Compile Include="Swf\Tags\DefineFontTag.cs" />
+    <Compile Include="Swf\Tags\DefineScalingGridTag.cs" />
+    <Compile Include="Swf\Tags\DefineScenesAndFrameLabelsTag.cs" />
+    <Compile Include="Swf\Tags\DoActionTag.cs" />
+    <Compile Include="Swf\Tags\DoInitActionTag.cs" />
+    <Compile Include="Swf\Tags\EndTag.cs" />
+    <Compile Include="Swf\Tags\FrameLabelTag.cs" />
+    <Compile Include="Swf\Tags\JPEGTablesTag.cs" />
+    <Compile Include="Swf\Tags\PlaceObject2Tag.cs" />
+    <Compile Include="Swf\Tags\PlaceObject3Tag.cs" />
+    <Compile Include="Swf\Tags\PlaceObjectTag.cs" />
+    <Compile Include="Swf\Tags\RemoveObjectTag.cs" />
+    <Compile Include="Swf\Tags\SetBackgroundColorTag.cs" />
+    <Compile Include="Swf\Tags\SetTabIndexTag.cs" />
+    <Compile Include="Swf\Tags\ShowFrameTag.cs" />
+    <Compile Include="Swf\Tags\DefineBinaryDataTag.cs" />
+    <Compile Include="Swf\Tags\DefineBitsLosslessTag.cs" />
+    <Compile Include="Swf\Tags\DefineBitsTag.cs" />
+    <Compile Include="Swf\Tags\DefineButtonTag.cs" />
+    <Compile Include="Swf\Tags\DefineShapeTag.cs" />
+    <Compile Include="Swf\Tags\DefineSpriteTag.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\XnaVG\XnaVG\XnaVG.csproj">
+      <Project>{D9BA9973-8483-410B-A819-97D8D7C67CA5}</Project>
+      <Name>XnaVG</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
+  <!--
+      To modify your build process, add your task inside one of the targets below and uncomment it. 
+      Other similar extension points exist, see Microsoft.Common.targets.
+      <Target Name="BeforeBuild">
+      </Target>
+      <Target Name="AfterBuild">
+      </Target>
+    -->
+</Project>
