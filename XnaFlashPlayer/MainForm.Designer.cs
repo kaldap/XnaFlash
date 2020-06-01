@@ -36,6 +36,7 @@
             this.uložitSnímekObrazovkyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.konecToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pohledToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.celáObrazovkaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
@@ -54,6 +55,7 @@
             this.flashPlayer = new XnaFlashPlayer.FlashPlayerControl();
             this.openSwf = new System.Windows.Forms.OpenFileDialog();
             this.saveJpeg = new System.Windows.Forms.SaveFileDialog();
+            this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.mainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,7 +79,8 @@
             this.toolStripSeparator1,
             this.uložitSnímekObrazovkyToolStripMenuItem,
             this.toolStripSeparator2,
-            this.konecToolStripMenuItem});
+            this.konecToolStripMenuItem,
+            this.exportToolStripMenuItem});
             this.souborToolStripMenuItem.Name = "souborToolStripMenuItem";
             this.souborToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.souborToolStripMenuItem.Text = "&Soubor";
@@ -123,6 +126,15 @@
             this.konecToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.konecToolStripMenuItem.Text = "&Konec";
             this.konecToolStripMenuItem.Click += new System.EventHandler(this.konecToolStripMenuItem_Click);
+            // 
+            // exportToolStripMenuItem
+            // 
+            this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
+            this.exportToolStripMenuItem.ShortcutKeyDisplayString = "";
+            this.exportToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.exportToolStripMenuItem.Text = "&Export";
+            this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
             // 
             // pohledToolStripMenuItem
             // 
@@ -268,6 +280,10 @@
             this.saveJpeg.Filter = "Obrázek JPEG|*.jpg";
             this.saveJpeg.Title = "Uložit snímek";
             // 
+            // folderBrowserDialog
+            // 
+            this.folderBrowserDialog.Description = "Zvolte adresář pro export";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -313,6 +329,8 @@
         private FlashPlayerControl flashPlayer;
         private System.Windows.Forms.OpenFileDialog openSwf;
         private System.Windows.Forms.SaveFileDialog saveJpeg;
+        private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
     }
 }
 

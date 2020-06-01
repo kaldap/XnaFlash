@@ -52,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExportDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExportDlg.Designer.cs">
+      <DependentUpon>ExportDlg.cs</DependentUpon>
+    </Compile>
     <Compile Include="FlashPlayerControl.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -64,6 +70,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ExportDlg.resx">
+      <DependentUpon>ExportDlg.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

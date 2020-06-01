@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -22,6 +23,7 @@ namespace XnaFlashPlayer
             this.středníKvalitaToolStripMenuItem.PerformClick();
             this.opakovatToolStripMenuItem.PerformClick();
             this.přehráváníToolStripMenuItem.Enabled = false;
+            this.exportToolStripMenuItem.Enabled = false;
         }
 
         protected override void OnLoad(EventArgs e)
@@ -62,11 +64,13 @@ namespace XnaFlashPlayer
             if (openSwf.ShowDialog() != System.Windows.Forms.DialogResult.OK)
                 return;
 
+            exportToolStripMenuItem.Enabled =
             přehráváníToolStripMenuItem.Enabled = flashPlayer.Open(openSwf.FileName);
         }
         private void zavřítToolStripMenuItem_Click(object sender, EventArgs e)
         {
             flashPlayer.Close();
+            exportToolStripMenuItem.Enabled =
             přehráváníToolStripMenuItem.Enabled = false;
         }
         private void uložitSnímekObrazovkyToolStripMenuItem_Click(object sender, EventArgs e)
@@ -140,6 +144,33 @@ namespace XnaFlashPlayer
         {
             opakovatToolStripMenuItem.Checked = !opakovatToolStripMenuItem.Checked;
             flashPlayer.SetLooping(opakovatToolStripMenuItem.Checked);
+        }
+
+        private void exportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var dlg = new ExportDlg())
+            {
+                if (dlg.ShowDialog() != DialogResult.OK)
+                    return;
+
+                if (folderBrowserDialog.ShowDialog() != DialogResult.OK)
+                    return;
+
+                mainMenu.Enabled = false;
+                try
+                {
+                    flashPlayer.ExportAnimation(dlg.SkipFrames, dlg.ExportFrames, dlg.Transparent, folderBrowserDialog.SelectedPath);
+                    MessageBox.Show("Export dokončen!", "Požadované snímky byly exportovány!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("Export selhal!", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    mainMenu.Enabled = true;
+                }
+            }
         }
     }
 }

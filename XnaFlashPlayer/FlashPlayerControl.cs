@@ -80,7 +80,7 @@ namespace XnaFlashPlayer
             }
             catch (Exception e)
             {
-                MessageBox.Show("Sn9mek se nepodařilo uložit!\n\n" + e.Message);
+                MessageBox.Show("Snímek se nepodařilo uložit!\n\n" + e.Message);
             }
         }
         public void SetQuality(int qualityLevel)
@@ -128,7 +128,30 @@ namespace XnaFlashPlayer
             instance.Root.PrevFrame();
             instance.ForceRedraw();
         }
+        public void ExportAnimation(int skip, int count, bool transparent, string targetDirectory)
+        {
+            var flash = new Flash(gameServiceContainer, document, document.Width / 20, document.Height / 20);
+            flash.Visible = true;
+            flash.IsTransparent = transparent;
+            flash.Root.HighQuality = quality;
+            flash.Root.DontLoop = !looping;
+            flash.Root.NextFrame();
 
+            for (int i = 0; i < skip; i++)
+                flash.Root.OnNextFrame();
+
+            for (int i = 1; i <= count; i++)
+            {
+                flash.ForceRedraw();
+                flash.Draw(new GameTime());
+
+                var file = Path.Combine(targetDirectory, "frame" + i.ToString("D6") + ".png");
+                using (var fs = new FileStream(file, FileMode.Create))
+                    flash.Surface.Target.SaveAsPng(fs, flash.Surface.Width, flash.Surface.Height);
+
+                flash.Root.OnNextFrame();
+            }
+        }
         protected override void OnCreateControl()
         {
             if (!DesignMode)
